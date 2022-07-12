@@ -96,5 +96,6 @@ var Rectangle = (function () {
 
 
 
-var canvas = new fabric.Canvas('image_canvas', { backgroundImage: "https://cdn.galleries.smcloud.net/t/galleries/gf-aNib-Wpsp-yxNk_plaza-na-dojlidach-ile-kosztuje-wejscie-jak-dlugo-jest-otwarta-plaza-ile-kosztuje-wypozyczenie-sprzetu-cennik-lato-2019-1920x1080-nocrop.jpg", width: "1280", height:"720"});
+var canvas = new fabric.Canvas('image_canvas', { backgroundImage: "./styles/images/dojlidy1.png"});
+canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
 var rect = new Rectangle(canvas);
