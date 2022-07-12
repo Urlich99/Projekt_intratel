@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/date.js"></script>
+    <script src="./js/fabric.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <title>Dojlidy plaża</title>
+</head>
+
+<body>
+
+    <div class="div_text">
+        <div></div>
+        <div class="div_title">
+            <h1>Plaża Dojlidy </h1>
+            <h1><span id="time"> </span></h1>
+        </div>
+        <div class="div_table">
+            <table>
+                <tr>
+                    <td>Ilość osób:</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Temperatura:</td>
+                    <td>23 stopnie</td>
+                </tr>
+                <tr>
+                    <td>Stan pogody:</td>
+                    <td>Słonecznie</td>
+                </tr>
+            </table>
+            <button onclick="canvas.remove(canvas.getActiveObject())">Delete active selection</button>
+            <button onclick="canvas.remove(...canvas.getObjects());">Clear selection</button>
+        </div>
+    </div>
+    <div class="div_image">
+        <canvas id="image_canvas" width="1280" height="720"></canvas>
+        <script src="./js/selection.js"></script>    
+
+    </div>
+
+
+</body>
+
+</html>
