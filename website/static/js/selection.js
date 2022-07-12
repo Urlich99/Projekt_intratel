@@ -96,6 +96,6 @@ var Rectangle = (function () {
 
 
 
-var canvas = new fabric.Canvas('image_canvas', { backgroundImage: "./styles/images/dojlidy1.png"});
+var canvas = new fabric.Canvas('image_canvas', { backgroundImage: "../static/styles/images/dojlidy1.png"});
 canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
 var rect = new Rectangle(canvas);
