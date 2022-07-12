@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/date.js"></script>
+    <script src="./js/fabric.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <title>Dojlidy plaża</title>
+</head>
+
+<body>
+
+    <section>
+        <header>
+            <a href="#" class="logo"><img src="../styles/images/projekt.png"></img></a>
+            <ul>
+                <li><a href="https://intratel.pl/">INTRATEL</a></li>
+                <li><a
+                        href="https://www.google.com/maps?q=dojlidy+pla%C5%BCa&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjB9eLF9_D4AhWBr4sKHfFHDFMQ_AUoAXoECAIQAw">PLAŻA
+                        MIEJSKA DOJLIDY</a></li>
+                <li><a href="#"><span id="time"></span></a></li>
+
+            </ul>
+        </header>
+
+        <div class="prostokat2">
+            <h2>INFORMACJE O ZDJĘCIU</h2>
+            <div class="text">
+                <p>┃LUDZIE NA TRAWIE: 3</p>
+                <p>┃LUDZIE NA PLAŻY: 5</p>
+                <p>┃LUDZIE NA BOISKU: 0</p>
+                <p>┃LUDZIE W WODZIE: 6</p>
+            </div>
+        </div>
+        <div class="prostokat">
+            <div class="picture">
+                <canvas id="image_canvas" class="picture" width="1280px" height="720px"></canvas>
+                <script src="./js/selection.js"></script>
+
+            </div>
+        </div>
+        <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
+            <p class="przycisk_text"> CLEAR SELECTION </p>
+        </button>
+        <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
+            <p class="przycisk_text"> DELETE ACTIVE SELECTION </p>
+        </button>
+
+    </section>
+
+</body>
+</div>
+
+</html>
