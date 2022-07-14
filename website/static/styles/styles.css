@@ -24,7 +24,6 @@
     width: 100%;
     padding: 20px 100px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
   header ul{
@@ -36,11 +35,14 @@
   }
   header ul li a
   {
-    display: inline-block;
     color: #333;
     font-weight: 400;
     margin-left: 40px;
     text-decoration: none;
+  }
+
+  ul {
+    margin-left: 51%;
   }
   .picture {
     width: 45.1%;
@@ -57,7 +59,8 @@
     position: absolute;
     top: 13.2%;
     left: 26.5%;
-    border: 4px solid #2C3639 ;
+    border: 3px solid #2C3639 ;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -121,6 +124,7 @@
     height: 100%;
     background-position: center;
     background-size: cover;
+    border-radius: 7.5px;
   }
   .btn{
     width:31.7%;
@@ -154,4 +158,8 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+  }
+
+  #time {
+    padding-left: 20px;
   }
