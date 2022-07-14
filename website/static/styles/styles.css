@@ -24,7 +24,6 @@
     width: 100%;
     padding: 20px 100px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
   header ul{
@@ -36,11 +35,14 @@
   }
   header ul li a
   {
-    display: inline-block;
     color: #333;
     font-weight: 400;
     margin-left: 40px;
     text-decoration: none;
+  }
+
+  ul {
+    margin-left: 51%;
   }
   .picture {
     width: 45.1%;
@@ -156,4 +158,8 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+  }
+
+  #time {
+    padding-left: 20px;
   }
