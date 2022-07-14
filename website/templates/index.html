@@ -13,10 +13,11 @@
 </head>
 
 <body>
+    
 
     <section>
         <header>
-            <a href="#" class="logo"><img src="../static/styles/images/projekt.png"></img></a>
+            <a href="index.html" class="logo"><img src="../static/styles/images/projekt.png"></img></a>
             <ul>
                 <li><a href="https://intratel.pl/">INTRATEL</a></li>
                 <li><a
@@ -36,13 +37,22 @@
                 <p>┃LUDZIE W WODZIE: 6</p>
             </div>
         </div>
+
         <div class="prostokat">
+            <div class="upload">
+                <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
+                    <input type="file" id="image_input">
+                    <p class="wgraj"> WGRAJ ZDJĘCIE </p>
+                </button>
+            </div>        
+            <div id="display_image"></div>
+            <script src="../static/js/upload.js"></script>
             <div class="picture">
                 <canvas id="image_canvas" class="picture" width="1280px" height="720px"></canvas>
                 <script src="../static/js/selection.js"></script>
-
             </div>
         </div>
+        
         <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
             <p class="przycisk_text"> CLEAR SELECTION </p>
         </button>
