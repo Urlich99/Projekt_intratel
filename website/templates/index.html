@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
 
     <section>
         <header>
@@ -29,7 +29,7 @@
 
 
             </ul>
-                
+
         </header>
 
         <div class="prostokat2">
@@ -43,27 +43,34 @@
         </div>
 
         <div class="prostokat">
+
             <div class="upload">
                 <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
                     <input type="file" id="image_input">
-                    <p class="wgraj"> WGRAJ ZDJĘCIE </p>
+                    <p class="wgraj"> Upload photo </p>
                 </button>
-            </div>        
-            <div  id="display_image"></div>
+            </div>
+            <div id="display_image"></div>
             <script src="../static/js/upload.js"></script>
             <div class="picture">
                 <canvas id="image_canvas" class="picture" width="1280px" height="720px"></canvas>
-                <script src="../static/js/selection.js"></script>
+                <script src="../static/js/selection_test.js"></script>
             </div>
         </div>
-        
-        <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
-            <p class="przycisk_text"> CLEAR SELECTION </p>
-        </button>
-        <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
-            <p class="przycisk_text"> DELETE ACTIVE SELECTION </p>
-        </button>
 
+
+            <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
+                <p class="przycisk_text"> Clear selection </p>
+            </button>
+            <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
+                <p class="przycisk_text"> Delete active selection </p>
+            </button>
+            <div class="wlacznik" >
+            <input type="checkbox" id="selection" name="selection" onclick="enable_selection()">
+            <label for="selection">
+                <span class="przycisk_text">Drawing enabled</span>
+            </label>
+        </div> 
     </section>
 
 </body>

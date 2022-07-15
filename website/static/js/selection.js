@@ -1,103 +1,92 @@
-var Rectangle = (function () {
-    function Rectangle(canvas) {
-        var inst=this;
-        this.canvas = canvas;
-        this.className= 'Rectangle';
-        this.isDrawing = false;
-        this.bindEvents();
-    }
-
-	 Rectangle.prototype.bindEvents = function() {
-    var inst = this;
-    inst.canvas.on('mouse:down', function(o) {
-      inst.onMouseDown(o);
-    });
-    inst.canvas.on('mouse:move', function(o) {
-      inst.onMouseMove(o);
-    });
-    inst.canvas.on('mouse:up', function(o) {
-      inst.onMouseUp(o);
-    });
-    inst.canvas.on('object:moving', function(o) {
-      inst.disable();
-    })
-  }
-    Rectangle.prototype.onMouseUp = function (o) {
-      var inst = this;
-      inst.disable();
-    };
-
-    Rectangle.prototype.onMouseMove = function (o) {
-      var inst = this;
-      
-
-      if(!inst.isEnable()){ return; }
-     
-      var pointer = inst.canvas.getPointer(o.e);
-      var activeObj = inst.canvas.getActiveObject();
-
-      activeObj.stroke= 'lightgreen',
-      activeObj.strokeWidth= 4;
-      activeObj.fill = 'transparent';
-
-      if(origX > pointer.x){
-          activeObj.set({ left: Math.abs(pointer.x) }); 
-      }
-      if(origY > pointer.y){
-          activeObj.set({ top: Math.abs(pointer.y) });
-      }
-
-      activeObj.set({ width: Math.abs(origX - pointer.x) });
-      activeObj.set({ height: Math.abs(origY - pointer.y) });
-
-      activeObj.setCoords();
-      inst.canvas.renderAll();
-
-    };
-
-    Rectangle.prototype.onMouseDown = function (o) {
-      var inst = this;
-      inst.enable();
-
-      var pointer = inst.canvas.getPointer(o.e);
-      origX = pointer.x;
-      origY = pointer.y;
-
-    	var rect = new fabric.Rect({
-          left: origX,
-          top: origY,
-          originX: 'left',
-          originY: 'top',
-          width: pointer.x-origX,
-          height: pointer.y-origY,
-          angle: 0,
-          transparentCorners: false,
-          hasBorders: false,
-          hasControls: false,
-          strokeDashArray: [5, 5]
-      });
-
-  	  inst.canvas.add(rect).setActiveObject(rect);
-    };
-
-    Rectangle.prototype.isEnable = function(){
-      return this.isDrawing;
-    }
-
-    Rectangle.prototype.enable = function(){
-      this.isDrawing = true;
-    }
-
-    Rectangle.prototype.disable = function(){
-      this.isDrawing = false;
-    }
-
-    return Rectangle;
-}());
-
 var image = uploaded_image
 
 
 var canvas = new fabric.Canvas('image_canvas', { backgroundImage: image});
 canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
-var rect = new Rectangle(canvas);
+  
+  var rect, isDown, origX, origY;
+  
+  function drawRect() {
+    canvas.on('mouse:down', onMouseDown);
+    canvas.on('mouse:up', onMouseUp);
+    canvas.on('mouse:move', onMouseMove);
+    changeSelection(false);
+  }
+  
+  function selection() {
+    canvas.off('mouse:down', onMouseDown);
+    canvas.off('mouse:up', onMouseUp);
+    canvas.off('mouse:move', onMouseMove);
+    changeSelection(true);
+  }
+  
+  function onMouseDown(o) {
+    isDown = true;
+    var pointer = canvas.getPointer(o.e);
+    origX = pointer.x;
+    origY = pointer.y;
+    var pointer = canvas.getPointer(o.e);
+    rect = new fabric.Rect({
+      left: origX,
+      top: origY,
+      originX: 'left',
+      originY: 'top',
+      width: pointer.x - origX,
+      height: pointer.y - origY,
+      angle: 0,
+      transparentCorners: false,
+      hasBorders: false,
+      hasControls: false,
+      strokeDashArray: [5, 5],
+      stroke:  'lightgreen',
+      strokeWidth: 4,
+      fill: 'transparent'
+    });
+    canvas.add(rect);
+  };
+  
+  function onMouseMove(o) {
+    if (!isDown) return;
+    var pointer = canvas.getPointer(o.e);
+  
+    if (origX > pointer.x) {
+      rect.set({
+        left: Math.abs(pointer.x)
+      });
+    }
+    if (origY > pointer.y) {
+      rect.set({
+        top: Math.abs(pointer.y)
+      });
+    }
+  
+    rect.set({
+      width: Math.abs(origX - pointer.x)
+    });
+    rect.set({
+      height: Math.abs(origY - pointer.y)
+    });
+    canvas.requestRenderAll();
+  };
+  
+  function onMouseUp(o) {
+    isDown = false;
+    rect.setCoords();
+  };
+  
+  function changeSelection(value) {
+    canvas.selection = value;
+    canvas.forEachObject(function(obj) {
+      obj.selectable = value;
+    });
+    canvas.requestRenderAll();
+  }
+
+  function enable_selection(){
+    var checkBox = document.getElementById("selection");
+    if (checkBox.checked == true){
+        drawRect();
+      } else {
+        selection();
+      }
+  }
