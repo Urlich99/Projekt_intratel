@@ -37,7 +37,7 @@ var Rectangle = (function () {
       var activeObj = inst.canvas.getActiveObject();
 
       activeObj.stroke= 'lightgreen',
-      activeObj.strokeWidth= 2;
+      activeObj.strokeWidth= 4;
       activeObj.fill = 'transparent';
 
       if(origX > pointer.x){
@@ -73,7 +73,8 @@ var Rectangle = (function () {
           angle: 0,
           transparentCorners: false,
           hasBorders: false,
-          hasControls: false
+          hasControls: false,
+          strokeDashArray: [5, 5]
       });
 
   	  inst.canvas.add(rect).setActiveObject(rect);
