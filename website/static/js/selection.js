@@ -18,8 +18,8 @@ var LabeledRect = fabric.util.createClass(fabric.Rect, {
 
   _render: function(ctx) {
     this.callSuper('_render', ctx);
-    var font_size = Math.ceil(this.width/10);
-    ctx.font = '500 ' + font_size.toString() + 'px Helvetica';
+    var font_size = Math.ceil(this.width/10+15);
+    ctx.font = '500 ' + font_size.toString() + 'px Share Tech Mono';
     console.log(ctx.font)
     ctx.fillStyle = 'lightgreen';
     ctx.fillText(this.label, -this.width/2 + 10, -this.height/2 + font_size);
@@ -51,6 +51,12 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
     origX = pointer.x;
     origY = pointer.y;
     var pointer = canvas.getPointer(o.e);
+    
+    shadow = new fabric.Shadow({
+      color: 'rgba(0, 181, 62, 0.8)',
+      blur: 2,
+    })
+    
     rect = new LabeledRect({
       left: origX,
       top: origY,
@@ -66,7 +72,8 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
       strokeDashArray: [5, 5],
       stroke:  'lightgreen',
       strokeWidth: 4,
-      fill: 'transparent'
+      fill: 'transparent',
+      shadow: shadow
     });
   canvas.add(rect);
   
