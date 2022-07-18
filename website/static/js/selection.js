@@ -1,5 +1,31 @@
 var image = "";
 
+var LabeledRect = fabric.util.createClass(fabric.Rect, {
+
+  type: 'labeledRect',
+  initialize: function(options) {
+    options || (options = { });
+
+    this.callSuper('initialize', options);
+    this.set('label', options.label || '');
+  },
+
+  toObject: function() {
+    return fabric.util.object.extend(this.callSuper('toObject'), {
+      label: this.get('label')
+    });
+  },
+
+  _render: function(ctx) {
+    this.callSuper('_render', ctx);
+    var font_size = Math.ceil(this.width/10);
+    ctx.font = '500 ' + font_size.toString() + 'px Helvetica';
+    console.log(ctx.font)
+    ctx.fillStyle = 'lightgreen';
+    ctx.fillText(this.label, -this.width/2 + 10, -this.height/2 + font_size);
+  }
+});
+
 var canvas = new fabric.Canvas('image_canvas', { backgroundImage: image});
 canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
   
@@ -25,7 +51,7 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
     origX = pointer.x;
     origY = pointer.y;
     var pointer = canvas.getPointer(o.e);
-    rect = new fabric.Rect({
+    rect = new LabeledRect({
       left: origX,
       top: origY,
       originX: 'left',
@@ -33,6 +59,7 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
       width: pointer.x - origX,
       height: pointer.y - origY,
       angle: 0,
+      label: '',
       transparentCorners: false,
       hasBorders: false,
       hasControls: false,
@@ -41,7 +68,8 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
       strokeWidth: 4,
       fill: 'transparent'
     });
-    canvas.add(rect);
+  canvas.add(rect);
+  
   };
   
   function onMouseMove(o) {
@@ -70,9 +98,19 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
   
   function onMouseUp(o) {
     isDown = false;
+    
+    rect.label = name_selection();
+    rect.dirty = true;
+    canvas.requestRenderAll();
+    console.log(JSON.stringify(rect))
     rect.setCoords();
     sendToAPI()
   };
+
+  function name_selection() {
+    var sel_name = prompt("Name selection");
+    return sel_name;
+  }
 
   function sendToAPI() {
     var coordinates = {
