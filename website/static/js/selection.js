@@ -60,7 +60,7 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
       height: pointer.y - origY,
       angle: 0,
       label: '',
-      transparentCorners: false,
+      transparentCorners: true,
       hasBorders: false,
       hasControls: false,
       strokeDashArray: [5, 5],
@@ -102,7 +102,6 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
     rect.label = name_selection();
     rect.dirty = true;
     canvas.requestRenderAll();
-    console.log(JSON.stringify(rect))
     rect.setCoords();
     sendToAPI()
   };
