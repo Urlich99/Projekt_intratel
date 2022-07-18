@@ -1,5 +1,4 @@
-var image = uploaded_image
-
+var image = "";
 
 var canvas = new fabric.Canvas('image_canvas', { backgroundImage: image});
 canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
@@ -72,7 +71,38 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
   function onMouseUp(o) {
     isDown = false;
     rect.setCoords();
+    sendToAPI()
   };
+
+  function sendToAPI() {
+    var coordinates = {
+      "left": rect.left,
+      "top": rect.top,
+      "width": rect.width,
+      "height": rect.height
+    }
+
+    var data = {
+        coordinates: coordinates,
+        image: uploaded_image
+      }
+
+    fetch("http://127.0.0.1:5000/image", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        console.log("POST sent, response: ", response)
+      })
+      .catch(err => {
+        console.log("POST failed, err: ", err)
+      })
+  }
   
   function changeSelection(value) {
     canvas.selection = value;
