@@ -53,8 +53,8 @@ canvas.setDimensions({width: '147.5%', height: '133%'}, {cssOnly: true})
     var pointer = canvas.getPointer(o.e);
     
     shadow = new fabric.Shadow({
-      color: 'rgba(0, 181, 62, 0.9)',
-      blur: 4,
+      color: 'rgba(2, 52, 19, 0.4)',
+      blur: 2,
     })
     
     rect = new LabeledRect({
