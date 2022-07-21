@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../static/js/date.js"></script>
-    <script src="../static/js/fabric.min.js"></script>
-    <script src="../static/js/jquery-3.6.0.min.js"></script>
-    <script src="../static/js/burger.js"></script>
     <title>Dojlidy plaża</title>
 </head>
 
 <body>
+    <div class="font_preload" style="opacity: 0">
+        <span style="font-family: 'Share Tech Mono'"></span>
+        <span style="font-family: 'Poppins'"></span>
+    </div>
     <header>
         <div class="logo">
             <a href="index.html" class="logo">SP</a>
@@ -29,7 +30,6 @@
             <span></span>
           </div> 
     </header>
-
     <section id="jedynka">
 
         <div class="content">
@@ -81,7 +81,7 @@
             <script src="../static/js/upload.js"></script>
             <div class="picture">
                 <canvas id="image_canvas" class="picture" width="1280px" height="720px"></canvas>
-                <script src="../static/js/selection.js"></script>
+
             </div>
         </div>
 
@@ -93,7 +93,7 @@
             </button>
 
             <div class="wlacznik" >
-                <input type="checkbox" id="selection" name="selection" onclick="enable_selection()">
+                <input type="checkbox" id="create-polygon" name="selection">
                 <label for="selection">
                     <span class="przycisk_text">Drawing enabled</span>
                 </label>
@@ -105,3 +105,8 @@
         
 </body>
 </html>
+<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../static/js/materialize.min.js"></script>
+<script type="text/javascript" src="../static/js/fabric.min.js"></script>
+<script type="text/javascript" src="../static/js/script.js"></script>
+<script type="text/javascript" src="../static/js/polygon.js"></script>
