@@ -9,47 +9,74 @@
     <script src="../static/js/date.js"></script>
     <script src="../static/js/fabric.min.js"></script>
     <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/burger.js"></script>
     <title>Dojlidy plaża</title>
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo">SP</a>
+        </div>
+          <ul class="menu">
+            <li onclick="location.href='https://intratel.pl/';" class="menu-link">INTRATEL</li>
+            <li onclick="location.href='http://miejskoaktywni.pl/kamera.php';"class="menu-link">PLAŻA MIEJSKA DOJLIDY</li>
+            <li class="menu-link"><span id="time"></span></li>
+          </ul>
+          <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div> 
+    </header>
 
+    <section id="jedynka">
 
-    <section>
-        <header>
-            <a href="#" class="logo"><img src="../static/styles/images/projekt.png"></img></a>
-            <ul>
-                <li><a href="https://intratel.pl/">INTRATEL</a></li>
-                <li><a
-                        href="https://www.google.com/maps?q=dojlidy+pla%C5%BCa&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjB9eLF9_D4AhWBr4sKHfFHDFMQ_AUoAXoECAIQAw">PLAŻA
-                        MIEJSKA DOJLIDY</a></li>
-                <li>
-                    <a href="#"><span id="time"></span></a>
-                </li>
+        <div class="content">
+            <div class="textBox">
+                <h2>Plaża Miejska Dojlidy</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            </div>
+        </div>
+        
+        <div class="kolko"></div> 
 
+        <div class="AI">
+            <img src="../static/styles/images/plaza.png">
+        </div>
 
-            </ul>
-
-        </header>
+        <a href="#dwojka">
+            <button class="zobacz_wiecej" hr>
+                <p class="przycisk_text">Przejdź dalej</p>
+            </button>
+        </a>
+    
+    </section>
+    <section id="dwojka">
 
         <div class="prostokat2">
             <h2>INFORMACJE O ZDJĘCIU</h2>
             <div class="text">
-                <p>┃LUDZIE NA TRAWIE: 3</p>
-                <p>┃LUDZIE NA PLAŻY: 5</p>
+                <p>┃LUDZIE NA TRAWIE: 0</p>
+                <p>┃LUDZIE NA PLAŻY: 0</p>
                 <p>┃LUDZIE NA BOISKU: 0</p>
-                <p>┃LUDZIE W WODZIE: 6</p>
-            </div>
+                <p>┃LUDZIE W WODZIE: 0</p>
         </div>
 
-        <div class="prostokat">
+        </div>
+        <div class="upload">
+            <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
+                <input type="file" id="image_input">
+                <p class="przycisk_text"> Upload photo </p>
+            </button>
+        </div>
 
-            <div class="upload">
-                <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
-                    <input type="file" id="image_input">
-                    <p class="wgraj"> Upload photo </p>
-                </button>
-            </div>
+        <h1>Upload your image</h1>
+
+        <img class="pull" src="../static/styles/images/1024px-OOjs_UI_icon_upload.svg.png">
+
+        <div class="prostokat">
+            
             <div id="display_image"></div>
             <script src="../static/js/upload.js"></script>
             <div class="picture">
@@ -58,22 +85,23 @@
             </div>
         </div>
 
-
             <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
                 <p class="przycisk_text"> Clear selection </p>
             </button>
             <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
                 <p class="przycisk_text"> Delete active selection </p>
             </button>
+
             <div class="wlacznik" >
-            <input type="checkbox" id="selection" name="selection" onclick="enable_selection()">
-            <label for="selection">
-                <span class="przycisk_text">Drawing enabled</span>
-            </label>
-        </div> 
+                <input type="checkbox" id="selection" name="selection" onclick="enable_selection()">
+                <label for="selection">
+                    <span class="przycisk_text">Drawing enabled</span>
+                </label>
+            </div>
+
+    
+
     </section>
-
+        
 </body>
-</div>
-
 </html>
