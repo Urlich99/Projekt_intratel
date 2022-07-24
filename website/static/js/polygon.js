@@ -143,7 +143,8 @@ prototypefabric.polygon = {
         polygon.label = name_selection();
         polygon.dirty = true;
         canvas.requestRenderAll();
-        console.log(JSON.stringify(polygon))
+        console.log(JSON.stringify(polygon.points))
+        sendToAPI(polygon.points)
         document.getElementById("create-polygon").checked = false;
         activeLine = null;
         activeShape = null;
