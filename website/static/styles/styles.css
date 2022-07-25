@@ -227,7 +227,25 @@
     font-size: 130%;
     border: 2px solid #A6D1E6 ;
   }
-  .przycisk:hover, .przycisk2:hover, .zobacz_wiecej:hover, .btn:hover{
+
+.przycisk3{
+  width:18%;
+  height: 8%;
+  position: absolute;
+  top: 163.2%;
+  left: 71.5%;
+  border: none;
+  color:black;
+  background-color: #A6D1E6;
+  border-radius: 1rem;
+  box-shadow: inset 0 0 0 0 #A6D1E6;
+  transition: ease-out 0.2s;
+  font-size: 1rem;
+  outline: none;
+  font-size: 130%;
+  border: 2px solid #A6D1E6 ;
+}
+  .przycisk:hover, .przycisk2:hover, .przycisk3:hover, .zobacz_wiecej:hover, .btn:hover{
     cursor: pointer;
     color: whitesmoke;
   }
