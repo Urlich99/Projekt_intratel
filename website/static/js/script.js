@@ -22,6 +22,7 @@ var prototypefabric = new function () {
         canvas.on('mouse:down', function (options) {
             if(options.target && options.target.id == pointArray[0].id){
                 prototypefabric.polygon.generatePolygon(pointArray);
+                // sendToAPI(polygon);
             }
             if(polygonMode){
                 prototypefabric.polygon.addPoint(options);
@@ -48,4 +49,31 @@ var prototypefabric = new function () {
             canvas.renderAll();
         });
     };
+    
 };
+
+function sendToAPI(points) {
+    console.log("sendToAPI byla wywolana ", pointArray)
+    var coordinates = points
+
+    var data = {
+        coordinates: coordinates,
+        image: uploaded_image
+      }
+
+    fetch("http://localhost:5000/image", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        console.log("POST sent, response: ", response)
+      })
+      .catch(err => {
+        console.log("POST failed, err: ", err)
+      })
+  }
