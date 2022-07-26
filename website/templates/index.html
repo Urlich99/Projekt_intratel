@@ -75,14 +75,11 @@
 
         <img class="pull" src="../static/styles/images/1024px-OOjs_UI_icon_upload.svg.png">
 
-        <div class="prostokat">
-            
-            <div id="display_image"></div>
-            <script src="../static/js/upload.js"></script>
-            <div class="picture">
-                <canvas id="image_canvas" class="picture" width="1280px" height="720px"></canvas>
+        <div class="prostokat" id="image_box">
 
-            </div>
+            <div id="display_image"><canvas id="image_canvas" class="picture" ></canvas></div>
+            <script type="text/javascript" src="../static/js/fit_canvas.js"></script>
+            <script src="../static/js/upload.js"></script>
         </div>
 
             <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
