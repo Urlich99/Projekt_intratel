@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../static/js/date.js"></script>
+    <script src="../static/js/polygon.js"></script>
     <title>Dojlidy plaża</title>
 </head>
 
@@ -19,11 +20,13 @@
         <div class="logo">
             <a href="index.html" class="logo">SP</a>
         </div>
+
           <ul class="menu">
             <li onclick="location.href='https://intratel.pl/';" class="menu-link">INTRATEL</li>
             <li onclick="location.href='http://miejskoaktywni.pl/kamera.php';"class="menu-link">PLAŻA MIEJSKA DOJLIDY</li>
             <li class="menu-link"><span id="time"></span></li>
           </ul>
+ 
           <div class="burger">
             <span></span>
             <span></span>
@@ -31,18 +34,18 @@
           </div> 
     </header>
     <section id="jedynka">
+        <div class="kolko">
+            <div class="AI">
+                <img src="../static/styles/images/plaza.png">
+            </div>
+        </div> 
+
 
         <div class="content">
             <div class="textBox">
                 <h2>Plaża Miejska Dojlidy</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
             </div>
-        </div>
-        
-        <div class="kolko"></div> 
-
-        <div class="AI">
-            <img src="../static/styles/images/plaza.png">
         </div>
 
         <a href="#dwojka">
@@ -61,47 +64,60 @@
                 <p>┃LUDZIE NA PLAŻY: 0</p>
                 <p>┃LUDZIE NA BOISKU: 0</p>
                 <p>┃LUDZIE W WODZIE: 0</p>
-        </div>
-
-        </div>
-        <div class="upload">
-            <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
-                <input type="file" id="image_input">
-                <p class="przycisk_text"> Upload photo </p>
-            </button>
-        </div>
-
-        <h1>Upload your image</h1>
-
-        <img class="pull" src="../static/styles/images/1024px-OOjs_UI_icon_upload.svg.png">
-
-        <div class="prostokat" id="image_box">
-
-            <div id="display_image"><canvas id="image_canvas" class="picture" ></canvas></div>
-            <script type="text/javascript" src="../static/js/fit_canvas.js"></script>
-            <script src="../static/js/upload.js"></script>
-        </div>
-
-            <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
-                <p class="przycisk_text"> Clear selection </p>
-            </button>
-            <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
-                <p class="przycisk_text"> Delete active selection </p>
-            </button>
-            <button class="przycisk3" onclick="sendToAPI()">
-                <p class="przycisk_text"> Process </p>
-            </button>
-
-            <div class="wlacznik" >
-                <input type="checkbox" id="create-polygon" name="selection">
-                <label for="selection">
-                    <span class="przycisk_text">Drawing enabled</span>
-                </label>
             </div>
+        </div>
+
+    </div>
+    <div class="upload">
+        <button type="button" class="btn" onclick="canvas.remove(...canvas.getObjects());">
+            <input type="file" id="image_input">
+            <p class="przycisk_text"> Upload photo </p>
+        </button>
+    </div>
+
+    <h1>Upload your image</h1>
+
+    <img class="pull" src="../static/styles/images/1024px-OOjs_UI_icon_upload.svg.png">
+
+    <div class="prostokat" id="image_box">
+
+        <div id="display_image"><canvas id="image_canvas" class="picture" ></canvas></div>
+        <script type="text/javascript" src="../static/js/fit_canvas.js"></script>
+        <script src="../static/js/upload.js"></script>
+    </div>
+
+        <button class="przycisk" onclick="canvas.remove(...canvas.getObjects());">
+            <p class="przycisk_text"> Clear selection </p>
+        </button>
+        <button class="przycisk2" onclick="canvas.remove(canvas.getActiveObject())">
+            <p class="przycisk_text"> Delete active selection </p>
+        </button>
+        <button class="przycisk3" onclick="sendToAPI()">
+            <p class="przycisk_text"> Process </p>
+        </button>
+
+        <div class="wlacznik" >
+            <input type="checkbox" id="create-polygon" name="selection">
+            <label for="selection">
+                <span class="przycisk_text">Drawing enabled</span>
+            </label>
+        </div>
+
 
     
 
     </section>
+
+    <script>
+        const mobileNav = document.querySelector('ul');
+        const burgerIcon = document.querySelector('.burger');
+    
+        burgerIcon.addEventListener('click', function(){
+            mobileNav.classList.toggle('active');
+            burgerIcon.classList.toggle('active'); 
+           
+        })
+    </script>
         
 </body>
 </html>
