@@ -3,3 +3,5 @@ var clientHeight = document.getElementById('image_box').clientHeight;
 var canvas = document.getElementById('image_canvas');
 canvas.width = clientWidth;
 canvas.height = clientHeight;
+console.log(canvas.width)
+console.log(canvas.height)

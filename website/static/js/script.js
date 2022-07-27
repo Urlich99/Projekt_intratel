@@ -54,11 +54,12 @@ var prototypefabric = new function () {
 
 function sendToAPI(points) {
     console.log("sendToAPI byla wywolana ", pointArray)
-    var coordinates = points
+    var coordinates = points;
 
     var data = {
         coordinates: coordinates,
-        image: uploaded_image
+        image: uploaded_image,
+        canvas_size: { width: canvas.width, height: canvas.height }
       }
 
     fetch("http://localhost:5000/image", {
