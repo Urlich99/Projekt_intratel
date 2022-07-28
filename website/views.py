@@ -29,3 +29,7 @@ def receive_image():
     im = im.resize(resizedata)
     im.save('out.png')
     return response
+
+@views.route("/sendtoai", methods=["GET", "POST"])
+def sendtoai():
+    pass

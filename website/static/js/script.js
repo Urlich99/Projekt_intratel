@@ -78,3 +78,20 @@ function sendToAPI(points) {
         console.log("POST failed, err: ", err)
       })
   }
+
+  function sendToAI() {
+    console.log("dane zostaly wyslane do AI")
+
+    fetch("http://192.168.227.226:5556/mdst", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => {
+        console.log("POST sent, response: ", response)
+      })
+      .catch(err => {
+        console.log("POST failed, err: ", err)
+      })
+  }
