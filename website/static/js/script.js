@@ -62,7 +62,7 @@ function sendToAPI(points) {
         canvas_size: { width: canvas.width, height: canvas.height }
       }
 
-    fetch("http://localhost:5000/image", {
+    fetch("http://172.16.72.175:5000/image", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,10 +82,13 @@ function sendToAPI(points) {
   function sendToAI() {
     console.log("dane zostaly wyslane do AI")
 
-    fetch("http://192.168.227.226:5556/mdst", {
+    fetch("http://172.16.72.175:8082/mdst", {
       method: "POST",
+      mode: 'no-cors',
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://172.16.72.175:8082/mdst",
+        "Access-Control-Allow-Headers": "http://172.16.72.175:8082/mdst"
       },
     })
       .then(response => {

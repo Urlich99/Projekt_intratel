@@ -27,7 +27,7 @@ def receive_image():
     b64_im = request_json['image'].split(",")[1]
     im = Image.open(io.BytesIO(base64.b64decode(b64_im)))
     im = im.resize(resizedata)
-    im.save('out.png')
+    im.save('/data/upload/out.png')
     return response
 
 @views.route("/sendtoai", methods=["GET", "POST"])
